@@ -1,0 +1,63 @@
+THE COURSE 17 USING MAP 
+
+
+app.js:
+
+// you have to write (React.Component ) not just component  
+/* you put the props inside the <child name prop1="",prop2="",prop3=""/>
+and you call them in the child by {this.props.prop1}, {this.props.prop2}....
+*/
+// note : this.props means the popreties of this coponent 
+export default className App extends Component {
+  render() {
+     state = {
+
+items : [     {id : 2, name:"soso" , age:25 } ,  {id : 3, name:"fofo" , age:35 } ,{id : 4, name:"koko" , age:45 }    ]                                                                             
+}
+
+    return (
+      <div className="App">
+        Hello from father component 
+       
+    <Items myitems = {this.state.items}/>
+    
+      </div>
+    )
+  }
+}
+
+items.js:
+export default className Items extends Component {
+  
+  render() {
+  //const {id,name,age} = this.props;// Stock the property(props) inside id 
+
+const {myitems} = this.props;
+const theitems = myitems.map((item)=>{
+
+return(
+<div>
+
+<p>   {item.id}     </p>
+<p>   {item.name}     </p>
+<p>   {item.age}     </p>
+
+</div>
+
+)
+
+
+}
+)
+ 
+    return (
+      <div>
+
+     {theitems}
+      </div>
+    )
+  }
+}
+// to passe data from component to parent, in the div of parent(App.js) : <component name/>
+// to passe data from parent to component : in the component we put the next in div  :{this.props.proprety name}
+
